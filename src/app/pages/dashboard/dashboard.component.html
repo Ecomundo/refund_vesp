@@ -1,0 +1,47 @@
+<div class="container">
+    <br>
+    <div align="right" (click)="logout()">
+        <label style="cursor: pointer"> 
+            Salir
+        </label>
+        <img style="cursor: pointer" src="../../../assets/icons/logout.svg" width="2%" alt="">
+
+    </div>
+
+    <h1 align="center" class="mt-4">Reverso Vespertino Ecomundo</h1>
+
+    <hr>
+
+    <div class="row mt-4 justify-content-center">
+        <div class="col-4 col-md-4 col-sm-12">
+            <form ngNativeValidate [formGroup]="forma" #dashForm="ngForm" (ngSubmit)="refund()">
+                <div align="center" class="form-group">
+                    <label>Ingrese DF generado</label>
+                    <input formControlName="df" type="text" name="transaction_id" [(ngModel)]="id.transaction_id" class="form-control" id="validationTooltipDf" placeholder="Ingrese DF" aria-describedby="validationTooltipUsernamePrepend" required>
+                </div>
+                <div align="center">
+                    <input type="submit" class="btn btn-custom" value="Reversar">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div *ngIf="suc" class="row mt-2 justify-content-center">
+        <div class="col-4">
+            <div align="center" class="alert alert-success hide" role="alert" id="success"> {{mensaje}} </div>
+        </div>
+    </div>
+
+    <div *ngIf="err" class="row mt-2 justify-content-center">
+        <div class="col-4">
+            <div align="center" class="alert alert-danger hide" role="alert" id="error"> {{mensaje}} </div>
+        </div>
+    </div>
+
+    <div *ngIf="ale" class="row mt-2 justify-content-center">
+        <div class="col-4">
+            <div align="center" class="alert alert-warning hide" role="alert" id="alert"> {{mensaje}} </div>
+        </div>
+    </div>
+
+</div>

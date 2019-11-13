@@ -1,0 +1,20 @@
+version: "3"
+services:
+  refund_vesp:
+    image: ecodock/refund_vesp
+    container_name: refund_vesp
+    expose:
+      - 80
+      - 443
+    restart: always
+    environment:
+      - VIRTUAL_HOST=refund.vespertinoecomundo.edu.ec
+      - LETSENCRYPT_HOST=refund.vespertinoecomundo.edu.ec
+      - LETSENCRYPT_EMAIL=info@ecomundo.edu.ec
+
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
+   
